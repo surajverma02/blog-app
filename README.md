@@ -55,22 +55,11 @@ A dynamic and responsive blog platform built with React, designed for creating, 
 1. **Authentication**: Register a new account or log in with an existing one.
 2. **Create a Post**: Use the post editor to create a new blog entry.
 3. **Edit/Delete Posts**: Manage your blog posts by editing or deleting them as needed.
-4. **Interact with Posts**: Comment on posts and engage with the blogging community.
-5. **Search and Filter**: Use the search bar to find specific posts by title, author, or category.
+4. **Search and Filter**: Use the search bar to find specific posts by title, author, or category.
 
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements
-
-- React documentation for guidance and best practices.
-- Tailwind CSS for the responsive and modern UI design.
-- Firebase / JWT for handling authentication securely.
 
 ---
 
