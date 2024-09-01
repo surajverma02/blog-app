@@ -121,7 +121,7 @@ export class Services {
       await this.bucket.deleteFile(config.appwriteBucketId, ID.unique());
       return true;
     } catch (error) {
-      console.log("Appwrite service :: uploadFile :: error : ", error);
+      console.log("Appwrite service :: deleteFile :: error : ", error);
       return false;
     }
   }
@@ -130,7 +130,7 @@ export class Services {
     try {
       return this.bucket.getFilePreview(config.appwriteBucketId, ID.unique());
     } catch (error) {
-      console.log("Appwrite service :: uploadFile :: error : ", error);
+      console.log("Appwrite service :: previewFile :: error : ", error);
       return false;
     }
   }

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-function Logo() {
-    return (
-        <h1>Logo</h1>
-    )
+function Logo({ width = "100px" }) {
+  return <div className={`${width}`}>Logo</div>;
 }
 
-export default Logo
+export default Logo;
