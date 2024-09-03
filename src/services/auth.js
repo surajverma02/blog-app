@@ -21,8 +21,9 @@ export class AuthService {
         password,
         name
       );
+      console.log("user is created")
       if (userAccount) {
-        this.loginAccount(email, password);
+        this.loginUser(email, password);
       } else {
         return userAccount;
       }
@@ -37,6 +38,7 @@ export class AuthService {
         email,
         password
       );
+      console.log("user is logged in")
       return session;
     } catch (error) {
       console.log("Appwrite service :: loginUser :: error : ", error);
@@ -55,6 +57,7 @@ export class AuthService {
   async logoutUser() {
     try {
       await this.account.deleteSessions();
+      console.log("user is logged out")
     } catch (error) {
       console.log("Appwrite service :: logoutUser :: error : ", error);
     }

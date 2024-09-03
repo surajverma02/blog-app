@@ -19,6 +19,7 @@ export class Services {
 
   async createPost({ title, slug, content, featuredImage, status, userId }) {
     try {
+      console.log(typeof userId)
       const post = await this.databases.createDocument(
         config.appwriteDatabaseId,
         config.appwriteCollectionId,
@@ -28,9 +29,10 @@ export class Services {
           content,
           featuredImage,
           status,
-          userId,
+          userId
         }
       );
+      console.log("user post created")
       return post;
     } catch (error) {
       console.log("Appwrite service :: createPost :: error : ", error);
@@ -126,9 +128,9 @@ export class Services {
     }
   }
 
-  previewFile() {
+  previewFile(fileId) {
     try {
-      return this.bucket.getFilePreview(config.appwriteBucketId, ID.unique());
+      return this.bucket.getFilePreview(config.appwriteBucketId, fileId);
     } catch (error) {
       console.log("Appwrite service :: previewFile :: error : ", error);
       return false;
