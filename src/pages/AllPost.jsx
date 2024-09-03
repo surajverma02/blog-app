@@ -10,6 +10,19 @@ function AllPosts() {
       setPosts(posts.documents);
     }
   });
+  if (posts.length === 0) {
+    return (
+      <div className="w-full">
+        <Container>
+          <div className="mx-auto max-w-2xl py-52 text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+              No post yet <br /> or <br /> Refresh Page
+            </h1>
+          </div>
+        </Container>
+      </div>
+    );
+  }
   return (
     <div className="w-full py-8">
       <Container>
