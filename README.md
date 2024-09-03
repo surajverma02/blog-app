@@ -2,6 +2,15 @@
 
 A dynamic and responsive blog platform built with React, designed for creating, managing, and reading blog posts with ease.
 
+## Deployed on netlify
+
+<a href="https://eblogapp.netlify.app" />
+
+## Sample credentials
+
+- **Username : suraj1@eblog.app, Password: 12345678**
+- **Username : suraj2@eblog.app, Password: 12345678**
+
 ## Features
 
 - **User Authentication**: Secure login and registration system.
