@@ -4,12 +4,13 @@ import services from "../services/appwriteConfig";
 
 function AllPosts() {
   const [posts, setPosts] = useState([]);
-  useEffect(() => {}, []);
-  services.getAllPosts([]).then((posts) => {
-    if (posts) {
-      setPosts(posts.documents);
-    }
-  });
+
+  useEffect(() => {
+    services.getAllPosts([]).then((posts) => {
+      if (posts) setPosts(posts.documents);
+    });
+  }, []);
+
   if (posts.length === 0) {
     return (
       <div className="w-full">

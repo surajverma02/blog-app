@@ -4,7 +4,7 @@ A dynamic and responsive blog platform built with React, designed for creating, 
 
 ## Deployed on netlify
 
-<a href="https://eblogapp.netlify.app" />
+<a href="https://eblogapp.netlify.app">Demo</a>
 
 ## Sample credentials
 

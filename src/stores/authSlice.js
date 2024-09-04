@@ -12,6 +12,7 @@ export const authSlice = createSlice({
     login: (state, action) => {
       state.status = true;
       state.userData = action.payload.userData;
+      console.log("user data stored in stores")
     },
 
     logout: (state) => {
