@@ -15,27 +15,36 @@ export class AuthService {
 
   async createUser({ email, password, name }) {
     try {
-      const userAccount = await this.account
-        .create(ID.unique(), email, password, name)
-        .then(() => {
+      var userAccount;
+      await this.account.create(ID.unique(), email, password, name).then(
+        (response) => {
           console.log("user is created");
-          const session = this.loginUser({ email, password });
-          console.log(session);
-        });
-      console.log(userAccount)
+          userAccount = response;
+        },
+        (error) => {
+          console.log(error);
+          throw new Error("User not created, try again!");
+        }
+      );
       return userAccount;
     } catch (error) {
       console.log("Appwrite service :: createUser :: error : ", error);
     }
-  } 
+  }
 
   async loginUser({ email, password }) {
     try {
-      const session = await this.account.createEmailPasswordSession(
-        email,
-        password
+      var session;
+      await this.account.createEmailPasswordSession(email, password).then(
+        (response) => {
+          console.log("user is logged in");
+          session = response;
+        },
+        (error) => {
+          console.log(error);
+          throw new Error("User does not logged in, try again!");
+        }
       );
-      console.log("user is logged in");
       return session;
     } catch (error) {
       console.log("Appwrite service :: loginUser :: error : ", error);
@@ -44,7 +53,17 @@ export class AuthService {
 
   async getCurrentUser() {
     try {
-      return await this.account.get();
+      var userData;
+      await this.account.get().then((user) => {
+        console.log(user);
+        console.log("User data retrieved.");
+        userData = user;
+      },
+      (error) => {
+        console.log(error)
+        throw new Error("User data not gets, try again!");   
+      });
+      return userData;
     } catch (error) {
       console.log("Appwrite service :: getCurrentUser :: error : ", error);
     }

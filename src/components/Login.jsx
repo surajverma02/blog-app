@@ -20,6 +20,7 @@ function Login() {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(authLogin(userData));
         navigate("/");
+        alert(userData.name + "Welcome to BlogApp, you are logged in.")
       }else{
         throw new Error("Invalid credentials");
       }

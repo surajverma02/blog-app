@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import authService from "../services/auth.js";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../stores/authSlice.js";
 import { Button, Input, Logo } from "./index.js";
-import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 
 function Signup() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
-  const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 
   const signup = async (data) => {
@@ -18,16 +15,8 @@ function Signup() {
       const userData = await authService.createUser(data);
       console.log("getted user", userData)
       if (userData) {
-        console.log("inside if userdata check ")
-        const user = await authService.getCurrentUser();
-        console.log("user found", user)
-        if (user) {
-          console.log("inside user if check")
-          dispatch(login(user));
-          console.log("dispatch")
-          navigate("/");
-          console.log("navigate")
-        }
+          navigate("/login");
+          alert("Welcome " + userData.name + ", your account is created. Please login!")
       } else {
         throw new Error("User not created, try another email to signup!");
       }
@@ -58,8 +47,7 @@ function Signup() {
             Sign In
           </Link>
         </p>
-        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
-
+        {error && <p className="text-blue-600 mt-8 text-center">{error}</p>}
         <form onSubmit={handleSubmit(signup)}>
           <div className="space-y-5">
             <Input
