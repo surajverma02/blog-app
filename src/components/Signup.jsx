@@ -16,11 +16,19 @@ function Signup() {
     setError("");
     try {
       const userData = await authService.createUser(data);
+      console.log("getted user", userData)
       if (userData) {
-        const userData = await authService.getCurrentUser();
-        if (userData) dispatch(login(userData));
-        navigate("/");
-      }else{
+        console.log("inside if userdata check ")
+        const user = await authService.getCurrentUser();
+        console.log("user found", user)
+        if (user) {
+          console.log("inside user if check")
+          dispatch(login(user));
+          console.log("dispatch")
+          navigate("/");
+          console.log("navigate")
+        }
+      } else {
         throw new Error("User not created, try another email to signup!");
       }
     } catch (error) {
@@ -50,7 +58,7 @@ function Signup() {
             Sign In
           </Link>
         </p>
-        {error  && <p className="text-red-600 mt-8 text-center">{error}</p>}
+        {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
 
         <form onSubmit={handleSubmit(signup)}>
           <div className="space-y-5">
@@ -90,6 +98,6 @@ function Signup() {
       </div>
     </div>
   );
-} 
+}
 
 export default Signup;
