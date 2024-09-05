@@ -8,8 +8,8 @@ A dynamic and responsive blog platform built with React, designed for creating, 
 
 ## Sample credentials
 
-- **Username : suraj1@eblog.app, Password: 12345678**
-- **Username : suraj2@eblog.app, Password: 12345678**
+- **Username : suraj01@gmail.com, Password: 12345678**
+- **Username : suraj02@gmail.com, Password: 12345678**
 
 ## Features
 
